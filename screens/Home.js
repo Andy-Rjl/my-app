@@ -1,78 +1,70 @@
-import * as React from "react";
-import {StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import { MaterialIcons, FontAwesome5, Entypo, Ionicons, AntDesign } from '@expo/vector-icons';
+import React from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-
-const Home = ({navigation}) => {
-    
-    return (
-        <View style={style.container}>
-            <Text style={style.textacceuil}>Acceuil</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('accueil')} style={style.button}><MaterialIcons name="chat-bubble-outline" color="#004d40" size={40}/><Text style={style.text}>Apprendre</Text><Image source={require('./../assets/apprendre.png')} style={style.image} /></TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('accueil')} style={style.button}><FontAwesome5 name="shopping-basket" color="#004d40" size={40}/><Text style={style.text}>Decouvrir des cultures</Text><Image source={require('./../assets/decouvrir.png')} style={style.image} /></TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('accueil')} style={style.button}><Entypo name="open-book" color="#004d40" size={40}/><Text style={style.text}>Decouvrir des mythes</Text><Image source={require('./../assets/mythe.png')} style={style.image} /></TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('traduction')} style={style.button}><Ionicons name="language" color="#004d40" size={40}/><Text style={style.text}>Traduction          </Text><Image source={require('./../assets/traduction.png')} style={style.image}/></TouchableOpacity>
-            <View style={style.navigation}>
-                <TouchableOpacity><AntDesign name="home" size={30} color={"#004d40"} style={style.icons}/></TouchableOpacity>
-                <TouchableOpacity><Ionicons name="albums-outline" size={30} color={"#004d40"} style={style.icons}/></TouchableOpacity>
-                <TouchableOpacity><Ionicons name="leaf-outline" size={30} color={"#004d40"} style={style.icons}/></TouchableOpacity>
-                <TouchableOpacity><Ionicons name="notifications-outline" size={30} color={"#004d40"} style={style.icons}/></TouchableOpacity>
-                <TouchableOpacity><Ionicons name="person-outline" size={30} color={"#004d40"} style={style.icons}/></TouchableOpacity>
-            </View>
-        </View>
-    );
+const Home = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      {/*<TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}><Ionicons name="arrow-back" size={24} color="black" /></TouchableOpacity>*/}
+      <Image source={require('./../assets/lemurien.png')} style={styles.logo} />
+      <Text style={styles.title}>HITENY</Text>
+      <TouchableOpacity style={styles.buttonFilled}onPress={() => navigation.navigate('connexion')}><Text style={styles.buttonFilledText}>Continuer sans compte</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.buttonOutline}onPress={() => navigation.navigate('inscription')}><Text style={styles.buttonOutlineText}>Créer un compte</Text></TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('connexion')} style={styles.buttonOutline}><Text style={styles.buttonOutlineText}>Se connecter</Text></TouchableOpacity>
+    </View>
+  );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#f7fff7"
+      flex: 1,
+      padding: 24,
+      backgroundColor: '#fff',
+      justifyContent: 'center',
     },
-    textacceuil: {
-        fontSize: 50,
-        color: "#004d40",
-        marginBottom: 20
+    backButton: {
+      position: 'absolute',
+      top: 50,
+      left: 20,
     },
-    button: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#f7fff7",
-        borderWidth: 1,
-        borderColor: '#004d40',
-        borderRadius: 6,
-        marginBottom: 10,
-        width: 350,
-        height: 100,
-        paddingLeft: 20
+    logo: {
+      width: 100,
+      height: 100,
+      alignSelf: 'center',
+      marginBottom: 20,
+      top: -100
     },
-    text: {
-        float: "left",
-        color: "#004d40",
-        marginLeft: 10,
-        marginRight: 50,
-        flex: 1,
-        fontSize: 20
+    title: {
+      fontSize: 28,
+      fontWeight: 'bold',
+      color: '#345C2A',
+      textAlign: 'center',
+      marginBottom: 40,
+      top: -100
     },
-    image:{
-        width: 98,
-        height: 98,
-        resizeMode: "contain",
-        marginRight: 10,
+    buttonFilled: {
+      backgroundColor: '#345C2A',
+      padding: 15,
+      borderRadius: 10,
+      marginBottom: 20,
     },
-    navigation:{
-        flexDirection: "row",
-        borderWidth: 1,
-        borderColor: "#004d40",
-        borderRadius: 6,
-        marginTop: 20,
-        padding: 10
+    buttonFilledText: {
+      color: '#fff',
+      textAlign: 'center',
+      fontWeight: 'bold',
     },
-    icons: {
-        marginLeft: 35
-    }
-})
-
-export default Home;
+    buttonOutline: {
+      borderWidth: 1.5,
+      borderColor: '#345C2A',
+      padding: 15,
+      borderRadius: 10,
+      marginBottom: 15,
+    },
+    buttonOutlineText: {
+      color: '#345C2A',
+      textAlign: 'center',
+      fontWeight: 'bold',
+    },
+  });
+  
+  export default Home

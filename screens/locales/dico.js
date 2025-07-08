@@ -4,6 +4,12 @@ export default {
     "au revoir": "veloma",
     merci: "misaotra",
     huit: "valo",
+    je : "izaho",
+    tu: "ianao",
+    il: "izy",
+    elle: "izy",
+    nous: "isika",
+    vous: "ianareo",
 
     "bonjour tout le monde":"Manao ahoana daholo",
     "je t'aime":"Tiako ianao",
